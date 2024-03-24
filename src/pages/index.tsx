@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const Landing = () => {
+const index = () => {
   const router = useRouter();
   const isAuthenticated = false;
 
@@ -16,4 +16,4 @@ const Landing = () => {
   return null;
 };
 
-export default Landing;
+export default index;
