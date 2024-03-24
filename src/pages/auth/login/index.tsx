@@ -1,10 +1,21 @@
 import Image from "next/image";
+import { useState } from "react";
+import { useAuth } from "@/utils/context/AuthContext";
+import { UserInfo } from "@/utils/type";
 
 import Layout from "@/components/Layout";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 
 const Login = () => {
+  const { login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (username: UserInfo | any) => {
+    login(username);
+  };
+
   return (
     <Layout>
       <h1 className="font-bold text-white text-2xl mt-10">
@@ -19,15 +30,19 @@ const Login = () => {
               id="username"
               type="text"
               placeholder="Username"
+              onChange={(e: any) => setUsername(e.target.value)}
             />
             <Input
               label="Password"
               id="password"
               type="password"
               placeholder="Password"
+              onChange={(e: any) => setPassword(e.target.value)}
             />
             <div className="flex items-center justify-between">
-              <Button type="button">Sign In</Button>
+              <Button onClick={() => handleLogin(username)} type="button">
+                Sign In
+              </Button>
             </div>
           </form>
           <p className="text-center text-sm mt-4">
