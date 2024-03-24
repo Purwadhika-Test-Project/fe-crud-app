@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useAuth } from "@/utils/context/AuthContext";
-import { UserInfo } from "@/utils/type";
 
 import Layout from "@/components/Layout";
 import Input from "@/components/Input";
@@ -12,7 +11,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (username: UserInfo | any) => {
+  const handleLogin = (username: string) => {
     login(username);
   };
 
@@ -49,15 +48,15 @@ const Login = () => {
             Enter your credentials to access the user management system.
           </p>
         </div>
-      </div>
-      <div className="flex gap-x-5 mb-10">
-        <h1 className="text-white mt-2">Powered by :</h1>
-        <Image
-          alt="next"
-          src="https://imgs.search.brave.com/LPe22G3WouWUTLupx2-kGiS0QjJi9dI3S2cZoJiSmgo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9uZXh0LWpzLnN2/Zw.svg"
-          width={50}
-          height={50}
-        />
+        <div className="flex gap-x-5 mt-10">
+          <h1 className="text-white">Powered by :</h1>
+          <Image
+            alt="next"
+            src="https://imgs.search.brave.com/LPe22G3WouWUTLupx2-kGiS0QjJi9dI3S2cZoJiSmgo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/d29ybGR2ZWN0b3Js/b2dvLmNvbS9sb2dv/cy9uZXh0LWpzLnN2/Zw.svg"
+            width={50}
+            height={50}
+          />
+        </div>
       </div>
     </Layout>
   );
